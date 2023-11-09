@@ -1,0 +1,371 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+html, body, form, .container, .bg-black{
+    width: 100%;
+    height: 100%;
+}
+
+.container{
+    min-height: 100%;
+    height: fit-content;
+}
+
+.hr-white{
+    height: 2px;
+    width: 80%;
+    background: #FFF;
+}
+
+.hr-cyan{
+    height: 2px;
+    width: 80%;
+    background: rgb(0, 180, 180);
+    margin: 0em auto;
+}
+
+form{
+    padding: 1em 0em;
+    gap: 1em 0em;
+}
+
+main, form, .container {
+    display: flex;
+    flex-direction: column;
+}
+
+main, form, .header-div{
+    align-items: center;
+    justify-content: center;
+}
+
+header, footer{
+    width: 100%;
+    height: 4em;
+}
+
+header{
+    background: rgb(0, 119, 119);
+    color: #FFF;
+    display: flex;
+}
+
+.header-div{
+    flex: 1;
+    display: flex;
+    padding: 0em 1em;
+}
+
+.header-div:nth-child(3){
+    justify-content: flex-end;
+}
+.header-div>svg{
+    cursor: pointer;
+}
+
+.header-div:nth-child(4){
+    display: none;
+    flex: 1;
+    padding: 0em 1em;
+}
+
+main{
+    flex: 1;
+    height: 100%;
+    background: #7c7c7c;
+
+}
+
+.card-holder, .create-content{
+    background: #FFF;
+    width: 40%;
+    height: fit-content;
+    min-height: 70%;
+    border-radius: 10px;
+}
+
+.card-header, .card-content{
+    padding: 1em;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.radio-div, .create-div{
+    color: #bebebe;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 1em 0em;
+    text-align: center;
+}
+/*AREA RADIO BUTTON*/
+.radio-div>span{
+    padding: 0.7em 1em;
+    border: 2px solid #bebebe;
+    border-radius: 100%;
+    margin: 1em 0em;
+    transition: 300ms;
+    cursor: pointer;
+}
+.radio-div>span:nth-child(1):hover{
+    border-color: #FF0000 ;
+    color: #FF0000 ;
+}
+.radio-div>span:nth-child(2):hover{
+    border-color: #FFA500 ;
+    color: #FFA500 ;
+}
+.radio-div>span:nth-child(3):hover{
+    border-color: #dbdb00 ;
+    color: #dbdb00 ;
+}
+.radio-div>span:nth-child(4):hover{
+    border-color: #008000 ;
+    color: #008000 ;
+}
+.radio-div>span:nth-child(5):hover{
+    border-color: #0000FF;
+    color: #0000FF;
+}
+.radio-div>span:nth-child(1):hover::before{
+    content: "Discordo totalmente";
+    position: absolute;
+    background: #e7e7e7;
+    padding: 0.5em;
+    border-radius: 10px;
+    border: 1px solid #FF0000;
+    text-align: center;
+    transform: translate(-4em,-3em); 
+}
+.radio-div>span:nth-child(2):hover::before{
+    content: "Discordo Parcialmente";
+    position: absolute;
+    background: #e7e7e7;
+    padding: 0.5em;
+    border-radius: 10px;
+    border: 1px solid #FFA500;
+    text-align: center;
+    transform: translate(-5em,-3em); 
+}
+.radio-div>span:nth-child(3):hover::before{
+    content: "Não concordo nem discordo";
+    position: absolute;
+    background: #e7e7e7;
+    padding: 0.5em;
+    border-radius: 10px;
+    border: 1px solid #dbdb00;
+    text-align: center;
+    transform: translate(-6em,-3em); 
+}
+.radio-div>span:nth-child(4):hover::before{
+    content: "Concordo Parcialmente";
+    position: absolute;
+    background: #e7e7e7;
+    padding: 0.5em;
+    border-radius: 10px;
+    border: 1px solid #008000;
+    text-align: center;
+    transform: translate(-5em,-3em); 
+}
+.radio-div>span:nth-child(5):hover::before{
+    content: "Concordo totalmente";
+    position: absolute;
+    background: #e7e7e7;
+    padding: 0.5em;
+    border-radius: 10px;
+    border: 1px solid #0000FF;
+    text-align: center;
+    transform: translate(-4em,-3em); 
+}
+.radio-div>span.selected{
+    border-color: #000;
+    color: #000;
+}
+/*FIM AREA RADIO BUTTON*/
+
+/*AREA  TEXT INPUT*/
+.radio-div>input{
+    width: 70%;
+    border: none;
+    border-bottom: 2px solid rgb(0, 180, 180);
+    padding: 0.2em 1em;
+}
+.radio-div>input:focus{
+    outline: none;
+}
+
+/*FIM AREA  TEXT INPUT*/
+.radio-div>select{
+    background: none;
+    border: 2px solid #cccccc;
+    border-radius: 10px;
+    padding: 0.5em 1em;
+    transition: 300ms;
+}
+/*FIM AREA  TEXT INPUT*/
+.radio-div>select:focus{
+    border-color: rgb(0, 119, 119);
+}
+
+
+
+
+footer{
+    background: rgb(37, 68, 68);
+}
+
+.bg-black, .bg-black-show, .sidebar, .sidebar-show{
+    position: fixed;
+}
+
+.bg-black{
+    z-index: -1;
+}
+
+.bg-black-show{
+    background: #000;
+    opacity: 50%;
+    z-index: 10 !important;
+    animation: born-bg-black 500ms normal;
+}
+
+
+
+
+.create-div>span, .create-div>button{
+    border-radius: 10px !important;
+    border: none !important;
+    background: rgb(0, 119, 119);
+    color: #FFF;
+    padding: 0.7em 1em;
+    margin: 1em 0em;
+    transition: 300ms;
+    cursor: pointer;
+}
+.create-div>span:hover, .create-div>button:hover{
+    transform: scale(1.03);
+}
+
+.create-content-holder-show{
+    display: flex !important;
+}
+
+.create-content{
+    min-height: 30%;
+    height: fit-content;
+    z-index: 12;
+}
+
+.choice-div{
+    display: flex;
+    justify-content: center;
+    gap: 0em 1em;
+}
+.choice-div>div{
+    gap: 0em 1em;
+}
+
+
+#createContentHolderIDCategory, #createContentHolderIDQuestion{
+    z-index: 10;
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar{
+    right: -15%;
+    width: 15%;
+    z-index: 11;
+    background: rgb(0, 119, 119);
+    height: 100%;
+    border-radius: 15px 0px 0px 15px;
+    display: flex;
+    flex-direction: column;
+    color: #FFF;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    transition: 300ms;
+}
+
+.sidebar-show{
+    right: 0 !important;
+}
+
+.sidebar-div{
+    flex: 1;
+}
+
+.sidebar-option>a, .sidebar-option>p{
+    cursor: pointer;
+}
+
+.sidebar-option>a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.sidebar-option{
+    padding: 1em;
+    text-align: end;
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 0em 1em;
+}
+
+.sidebar-div-exit{
+
+}
+
+@keyframes born-bg-black{
+    0%{opacity: 0%;}
+    100%{opacity: 50%;}
+}
+
+
+@media (max-width:700px){
+
+    .card-holder, .create-content{
+        width: 95%;
+    }
+
+    .header-div:nth-child(4){
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+        padding: 0em 1em;
+    }
+    
+    .header-div:nth-child(1),.header-div:nth-child(2),.header-div:nth-child(3){ display: none;}
+
+
+
+
+
+    .sidebar{
+        width: 100%;
+        right: -100%;
+    }
+
+    .sidebar-option{
+        justify-content: center;
+        font-size: 1.5em;
+    }
+
+    .sidebar-option>svg{
+        width: 32px;
+        height: 32px;
+    }
+    
+}
