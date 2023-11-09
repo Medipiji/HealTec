@@ -1,9 +1,3 @@
-<%-- 
-    Document   : contentTest
-    Created on : 05/11/2023, 22:07:20
-    Author     : jr_ma
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="container">
     <jsp:include page="../PaginasUser/sideMenu.jsp"/>

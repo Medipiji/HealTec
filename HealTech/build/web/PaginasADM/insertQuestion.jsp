@@ -57,44 +57,40 @@
     
     
 
-    <div id="createContentHolderIDQuestion" class="create-content-holder" >
+    <div id="createContentHolderIDQuestion" class="create-content-holder"  onload="atualizarSelect()">
         <div class="create-content">
             <div class="card-header">
                 <h2>Cadastro</h2>
-                <p onclick="atualizarSelect()">teste</p>
             </div>
             <div class="hr-cyan"></div>
             <div class="card-content">
             <form id="enviaQuestao">
                 <div class="radio-div">
                     <label>Categoria:</label>
-                    <select name="" id="selectCategoria">
-                        <option>Exemplo1</option>
-                        <option>Exemplo2</option>
+                    <select name="categoriaInput" id="selectCategoria">
                     </select>
                 </div>
                 <div class="radio-div">
                     <label>Questão:</label>
                 </div>
                 <div class="radio-div">
-                    <input type="text" name="" id="">
+                    <input type="text" name="questaoInput">
                 </div>
                 <div class="radio-div">
                     <h2>Questão do tipo:</h2>
                 </div>
                 <div class="choice-div">
                     <div class="radio-div"> 
-                        <input type="radio" name="tipoPErgunta" id="">
+                        <input type="radio" name="tipoPerguntaInput" value="1">
                         <label>Dissertativa</label>
                     </div>
                     <div class="radio-div">     
-                        <input type="radio" name="tipoPErgunta" id="">
+                        <input type="radio" name="tipoPerguntaInput" value="2">
                         <label>Alternativa</label>
-                        
                     </div>
                 </div>
                 <div class="create-div">
-                    <button>Registrar</button>
+                    <button type="submit">Registrar</button>
                     <span onclick="showCreateQuestion()">Cancelar</span>
                 </div>
             </form>

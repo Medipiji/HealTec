@@ -30,21 +30,19 @@ import java.util.List;
 public class CategoriaController extends HttpServlet {
 
     CategoriaDAL objDAL = new CategoriaDAL();
-    Gson gson = new Gson();
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         if(request.getServletPath().equals("/categoria/get")){
             try{
                 
-                List<Categoria> categorias = getCategoria();
+                StringBuilder categorias = new StringBuilder();
+                categorias = getCategoria();
                 
-                 if(!categorias.isEmpty()){
-                     
-                     String jsonCategorias = gson.toJson(categorias);
-                     
+                 if(categorias != null){
+                     String jsonResponse = categorias.toString();
                      response.setContentType("application/json");
-                     response.getWriter().write(jsonCategorias);
+                     response.getWriter().write(jsonResponse);
                      response.setStatus(HttpServletResponse.SC_OK);
                  } else {
                      response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
@@ -75,7 +73,7 @@ public class CategoriaController extends HttpServlet {
     
     //FUNÇÕES INTERMEDIARIAS COM A DAL
     
-    private List<Categoria> getCategoria() throws SQLException, ClassNotFoundException {
+    private StringBuilder getCategoria() throws SQLException, ClassNotFoundException {
         return objDAL.selectCategoria();
     }
     

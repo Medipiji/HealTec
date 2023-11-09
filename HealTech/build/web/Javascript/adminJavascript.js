@@ -13,6 +13,10 @@ function showCreateQuestion(){
     bgBlack.classList.toggle("bg-black-show");
 }
 
+document.addEventListener("DOMContentLoaded", function(){
+    atualizarSelect();
+});
+
 function atualizarSelect(){
     var xhr = new XMLHttpRequest();
     xhr.open('GET','/HealTech/categoria/get', true);
@@ -21,22 +25,14 @@ function atualizarSelect(){
     xhr.onreadystatechange = function(){
       if(xhr.readyState === 4 && xhr.status === 200){
         var data = JSON.parse(xhr.responseText);
-          
-         console.log(data);
+
         selectOptions.innerHTML = "";
         for(var i = 0; i < data.length; i++){
             var option = document.createElement('option');
-            console.log(data[i]);
             option.value = data[i].id;
-            option.text = data[i].descricaoCategoria;
+            option.text = data[i].descricao;
             selectOptions.append(option);
         }
-            
-        /*data.forEach(option => {
-        const optionElement = document.createElement("option");
-        optionElement.value = option.value; // Altere isso para se adequar à sua estrutura de dados
-        optionElement.textContent = option.label; // Altere isso para se adequar à sua estrutura de dados
-        selectOptions.appendChild(optionElement);});*/
       }  
     };
     xhr.send();
@@ -71,7 +67,7 @@ document.getElementById('enviaQuestao').addEventListener('submit', async functio
     const formData = new FormData(event.target);
     const data = new URLSearchParams(formData).toString();
    
-    await fetch("/HealTech/categoria/send",{
+    await fetch("/HealTech/questao/send",{
        method:'POST',
        body: data,
        headers: { 'Content-Type':'application/x-www-form-urlencoded' }

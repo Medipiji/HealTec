@@ -28,8 +28,7 @@ public class CategoriaDAL {
             }
             jsonBuilder.append("{");
             jsonBuilder.append("\"id\":").append(categoria.Id()).append(",");
-            jsonBuilder.append("\"descricao\":\"").append(categoria.DescricaoCategoria()).append("\",");
-            jsonBuilder.append("");
+            jsonBuilder.append("\"descricao\":\"").append(categoria.DescricaoCategoria()).append("\"");
             jsonBuilder.append("}");
         }
         jsonBuilder.append("]");
@@ -38,7 +37,8 @@ public class CategoriaDAL {
     
     private List<Categoria> selectCategoriaSQL() throws SQLException, ClassNotFoundException {
         
-        String query = "SELECT  ID, DESCRICAO, FLG_ATIVO  FROM `tb_categoria`";
+        List<Categoria> categorias = new ArrayList<>();
+        String query = "SELECT  ID, DESCRICAO, FLG_ATIVO  FROM `tb_categoria` WHERE FLG_ATIVO = 1";
         
         try (Connection conn = ConnectionDAL.connectionOpen(); Statement stmt = conn.createStatement(); ResultSet res = stmt.executeQuery(query)) {
             while(res.next()){
@@ -51,7 +51,7 @@ public class CategoriaDAL {
         } catch(SQLException e){
             throw e;
         }
-        return categorias;
+        return this.categorias = categorias;
     }
     
     public boolean insertCategoria(String categoria) throws SQLException, ClassNotFoundException {        

@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-
-/*
 package CONTROLLER;
 
 import java.io.IOException;
@@ -19,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.function.Function;
 
-import MODEL.Categoria;
-import DAL.CategoriaDAL;
+import MODEL.Questao;
+import DAL.QuestaoDAL;
 import java.util.List;
 
 
@@ -28,6 +26,8 @@ import java.util.List;
 @WebServlet(urlPatterns = {"/questao/send"})
 public class QuestaoController extends HttpServlet {
 
+    QuestaoDAL objDAL = new QuestaoDAL();
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     
     }
@@ -37,9 +37,13 @@ public class QuestaoController extends HttpServlet {
         
         if(request.getServletPath().equals("/questao/send")){
             try{
-
-                String categoria = (String) request.getParameter("categoriaInput");
-                 if(postCategoria(categoria) && categoria != null){
+                Questao obj = new Questao();
+                
+                obj.IdCategoria(Integer.parseInt(request.getParameter("categoriaInput")));
+                obj.IdTipoResposta(Integer.parseInt(request.getParameter("tipoPerguntaInput")));
+                obj.DescricaoQuestao(request.getParameter("questaoInput"));
+                
+                 if(postQuestao(obj)){
                      response.setStatus(HttpServletResponse.SC_OK);
                  } else {
                      response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
@@ -50,13 +54,8 @@ public class QuestaoController extends HttpServlet {
         }
     }
     
-    
     //FUNÇÕES INTERMEDIARIAS COM A DAL
-    
-    protected boolean postCategoria(String categoria) throws SQLException, ClassNotFoundException {
-        CategoriaDAL objDAL = new CategoriaDAL();
-        return objDAL.insertCategoria(categoria);
+    protected boolean postQuestao(Questao paramQuestao) throws SQLException, ClassNotFoundException {
+        return objDAL.insertCategoria(paramQuestao);
     }
-    
-    
-}*/
+}
